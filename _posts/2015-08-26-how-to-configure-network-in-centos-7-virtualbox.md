@@ -8,7 +8,9 @@ tags: [centos]
 {% include JB/setup %}
 
 Host: ubuntu 14.04
+
 virtualbox 5.02
+
 Guest: centos 7
 
 **what i want:** under host machine, connect guest using ssh.
