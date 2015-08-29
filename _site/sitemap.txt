@@ -1,0 +1,15 @@
+
+http://username.github.io/archive.html
+http://username.github.io/atom.xml
+http://username.github.io/categories.html
+http://username.github.io/index.html
+http://username.github.io/new-page.html
+http://username.github.io/pages.html
+http://username.github.io/rss.xml
+http://username.github.io/sitemap.txt
+http://username.github.io/tags.html
+
+http://username.github.io/2015/08/29/ubuntu-1404-configurations
+http://username.github.io/how-tos/2015/08/29/how-to-build-vim-from-source
+http://username.github.io/linux/2015/08/26/how-to-configure-network-in-centos-7-virtualbox
+http://username.github.io/lessons/2011/12/29/jekyll-introduction
