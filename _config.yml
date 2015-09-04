@@ -7,7 +7,7 @@ more: "read more"
 #baseurl: "/contrast" # comment out if in root directory
 
 comments:
-    disqus: "huangjinhui81@gmail.com"
+    disqus: "huangjinhui"
 #    isso: "comments.mysite.org"
 
 style:
