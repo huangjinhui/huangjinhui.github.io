@@ -5,18 +5,18 @@ categories: how-to
 ---
 
 * If you don't use any `colorscheme` in your `.vimrc`, just add 
-    {% highlight shell %}
+    {% highlight c %}
     hi Normal ctermbg=non
-    {%endhighlight%}
+    {% endhighlight %}
 in your `.vimrc`.
 
 * If you use colorscheme [molokai](https://github.com/tomasr/molokai), edit your `.vim/colors/molokai.vim`:
 
 find these two lines:
-    {% highlight shell %}
+    {% highlight c %}
     hi Normal  ctermfg=252 ctermbg=233
     hi NonText ctermfg=250 ctermbg=234
-    {%endhighlight%}
+    {% endhighlight %}
 change them to:
 
 ```
