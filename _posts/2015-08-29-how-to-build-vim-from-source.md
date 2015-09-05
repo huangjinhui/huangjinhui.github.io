@@ -2,6 +2,7 @@
 title: "How to build vim from source in ubuntu 14.04"
 date: 2015-08-29
 categories: how-to
+tags: [vim]
 ---
 
 Why do i need to build vim from source:
