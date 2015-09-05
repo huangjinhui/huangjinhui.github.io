@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Niklas Buschmann 2015 MIT <http://github.com/niklasbuschmann> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Really, every thing">
+    <title> How to build vim from source in ubuntu 14.04 › pactice everything</title>
+    <link rel="canonical" href="/how-to/2015/08/29/how-to-build-vim-from-source.html">
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="pactice everything &raquo; Feed" href="/feed.xml">
+    <script src="//huangjinhui.disqus.com/embed.js" async></script>
+    
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">pactice everything</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li><li><a href="/archive.html">Archive</a></li><li><a href="/categories.html">Categories</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    
+    <article>
+      <header>
+        <h2><a href="/how-to/2015/08/29/how-to-build-vim-from-source.html">How to build vim from source in ubuntu 14.04</a></h2>
+        <p><time datetime="2015-08-29T00:00:00+02:00">Aug 29, 2015</time> @ how-to</p>
+      </header>
+      <div>
+<p>Why do i need to build vim from source:</p>
+
+<ol>
+  <li>
+    <p>The default vim in ubuntu 14.04 can’t use system clipbord.</p>
+  </li>
+  <li>
+    <p>You can choose to <code>apt-get install</code> available packages like <code>vim-gnome</code> or <code>vim-gtk</code>, but i’m facing the annoying warning like:</p>
+  </li>
+</ol>
+
+<blockquote>
+
+  <p><code>(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it</code>.</p>
+</blockquote>
+
+<p>the only solution i’ve found is to build it from source.</p>
+
+<p>And it’s not that difficult, here is how i did it:</p>
+
+<ul>
+  <li>Install the required libraries, in ubuntu:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev <span class="se">\</span>
+    libgtk2.0-dev libatk1.0-dev libbonoboui2-dev <span class="se">\</span>
+    libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev <span class="se">\</span>
+    ruby-dev mercurial</code></pre></div>
+
+<ul>
+  <li>Remove all the existing vi(m):</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common</code></pre></div>
+
+<pre><code>in ubuntu 14.04 maybe you only need to remove the first 3.
+</code></pre>
+
+<ul>
+  <li>
+    <p>Get source code of vim</p>
+
+    <p>go to a place where you want store your vim source code, and then:</p>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone https://github.com/vim/vim.git</code></pre></div>
+
+<ul>
+  <li>Build and install:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd </span>vim
+./configure --with-features<span class="o">=</span>huge --enable-multibyte --enable-rubyinterp --enable-perlinterp --enable-luainterp --enable-pythoninterp --with-python-config-dir<span class="o">=</span>/usr/lib/python2.7/config-i386-linux-gnu/ --enable-gui<span class="o">=</span>gtk2 --enable-cscope --prefix<span class="o">=</span>/usr
+make <span class="nv">VIMRUNTIMEDIR</span><span class="o">=</span>/usr/share/vim/vim74
+sudo make install</code></pre></div>
+
+<p>instead using <code>sudo make install</code>, you can make a <code>.deb</code> package like i did by using <code>checkinstall</code>, which makes it easily uninstalled.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get install checkinstall
+sudo checkinstall</code></pre></div>
+
+<ul>
+  <li>Set vim as default editor:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+sudo update-alternatives --set editor /usr/bin/vim
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
+sudo update-alternatives --set vi /usr/bin/vim</code></pre></div>
+
+<p><em>Reference:</em></p>
+
+<ol>
+  <li>https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source</li>
+  <li>http://www.cnblogs.com/zhongcq/p/3615980.html</li>
+  <li>http://segmentfault.com/a/1190000000487523</li>
+  <li>http://www.vim.org/git.php</li>
+</ol>
+
+
+      </div>
+      
+      
+      <div id="disqus_thread"></div>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+    </article>
+
+    <footer>
+      <span><a href="">huang</a></span>
+      <span></span>
+      <span>&copy; 2015</span>
+    </footer>
+  </body>
+</html>
