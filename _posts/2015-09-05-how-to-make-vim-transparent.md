@@ -1,6 +1,7 @@
 ---
 title:  "How to make vim transparent in linux"
 date:   2015-09-05 00:57:00
+categories: how-to
 ---
 
 * If you don't use any `colorscheme` in your `.vimrc`, just add 
