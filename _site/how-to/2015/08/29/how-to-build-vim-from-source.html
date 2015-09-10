@@ -36,25 +36,20 @@
 <p>Why do i need to build vim from source:</p>
 
 <ol>
-  <li>
-    <p>The default vim in ubuntu 14.04 can’t use system clipbord.</p>
-  </li>
-  <li>
-    <p>You can choose to <code>apt-get install</code> available packages like <code>vim-gnome</code> or <code>vim-gtk</code>, but i’m facing the annoying warning like:</p>
-  </li>
+<li><p>The default vim in ubuntu 14.04 can&#39;t use system clipbord.</p></li>
+<li><p>You can choose to <code>apt-get install</code> available packages like <code>vim-gnome</code> or <code>vim-gtk</code>, but i&#39;m facing the annoying warning like:</p></li>
 </ol>
 
 <blockquote>
-
-  <p><code>(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it</code>.</p>
+<p><code>(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it</code>.</p>
 </blockquote>
 
-<p>the only solution i’ve found is to build it from source.</p>
+<p>the only solution i&#39;ve found is to build it from source.</p>
 
-<p>And it’s not that difficult, here is how i did it:</p>
+<p>And it&#39;s not that difficult, here is how i did it:</p>
 
 <ul>
-  <li>Install the required libraries, in ubuntu:</li>
+<li>Install the required libraries, in ubuntu:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev <span class="se">\</span>
@@ -63,26 +58,22 @@
     ruby-dev mercurial</code></pre></div>
 
 <ul>
-  <li>Remove all the existing vi(m):</li>
+<li>Remove all the existing vi(m):</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common</code></pre></div>
-
-<pre><code>in ubuntu 14.04 maybe you only need to remove the first 3.
-</code></pre>
-
+<div class="highlight"><pre><code class="language-text" data-lang="text">in ubuntu 14.04 maybe you only need to remove the first 3.
+</code></pre></div>
 <ul>
-  <li>
-    <p>Get source code of vim</p>
+<li><p>Get source code of vim</p>
 
-    <p>go to a place where you want store your vim source code, and then:</p>
-  </li>
+<p>go to a place where you want store your vim source code, and then:</p></li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone https://github.com/vim/vim.git</code></pre></div>
 
 <ul>
-  <li>Build and install:</li>
+<li>Build and install:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd </span>vim
@@ -96,7 +87,7 @@ sudo make install</code></pre></div>
 sudo checkinstall</code></pre></div>
 
 <ul>
-  <li>Set vim as default editor:</li>
+<li>Set vim as default editor:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
@@ -107,12 +98,11 @@ sudo update-alternatives --set vi /usr/bin/vim</code></pre></div>
 <p><em>Reference:</em></p>
 
 <ol>
-  <li>https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source</li>
-  <li>http://www.cnblogs.com/zhongcq/p/3615980.html</li>
-  <li>http://segmentfault.com/a/1190000000487523</li>
-  <li>http://www.vim.org/git.php</li>
+<li>https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source</li>
+<li>http://www.cnblogs.com/zhongcq/p/3615980.html</li>
+<li>http://segmentfault.com/a/1190000000487523</li>
+<li>http://www.vim.org/git.php</li>
 </ol>
-
 
       </div>
       

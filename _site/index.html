@@ -30,12 +30,46 @@
     
     <article>
       <header>
+        <h2><a href="/how-to/2015/09/10/how-to-restore-database-in-postgresql.html">How to resotre database in postgresql</a></h2>
+        <p><time datetime="2015-09-10T00:00:00+02:00"> <strong> date: </strong> Sep 10, 2015</time> <strong> category:</strong> how-to <strong>tags:</strong> postgresql</p>
+      </header>
+      <div>
+<p>in ubuntu:</p>
+
+<h3>Installation</h3>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib</code></pre></div>
+
+<h3>Login and change password</h3>
+
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">huang$ sudo su</span>
+<span class="gp">root@t400:~#</span> 
+<span class="gp">root@t400:~#</span> su - postgres
+<span class="go">No protocol specified</span>
+<span class="go">xrdb: Resource temporarily unavailable</span>
+<span class="go">xrdb: Can&#39;t open display &#39;:0.0&#39;</span>
+<span class="gp">postgres@t400:~$</span> 
+<span class="gp">postgres@t400:~$</span> psql
+<span class="go">postgres=#</span>
+<span class="go">postgres=# \password postgres</span>
+<span class="go">Enter new password: </span>
+<span class="go">Enter it again:</span></code></pre></div>
+
+      </div>
+      <footer>
+        <p><a href="/how-to/2015/09/10/how-to-restore-database-in-postgresql.html">read more &raquo;</a></p>
+      </footer>
+    </article>
+    
+    <article>
+      <header>
         <h2><a href="/how-to/2015/09/05/how-to-make-vim-transparent.html">How to make vim transparent in linux</a></h2>
         <p><time datetime="2015-09-05T02:57:00+02:00"> <strong> date: </strong> Sep 5, 2015</time> <strong> category:</strong> how-to <strong>tags:</strong> vim</p>
       </header>
       <div>
 <ul>
-  <li>If you don&#8217;t use any <code>colorscheme</code> in your <code>.vimrc</code>, just add</li>
+<li>If you don&#39;t use any <code>colorscheme</code> in your <code>.vimrc</code>, just add </li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">hi Normal <span class="nv">ctermbg</span><span class="o">=</span>none</code></pre></div>
@@ -43,24 +77,21 @@
 <p>in your <code>.vimrc</code>.</p>
 
 <ul>
-  <li>If you use colorscheme <a href="https://github.com/tomasr/molokai">molokai</a>, edit your <code>.vim/colors/molokai.vim</code>:</li>
+<li>If you use colorscheme <a href="https://github.com/tomasr/molokai">molokai</a>, edit your <code>.vim/colors/molokai.vim</code>:</li>
 </ul>
 
 <p>find these two lines:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">hi Normal  <span class="nv">ctermfg</span><span class="o">=</span><span class="m">252</span> <span class="nv">ctermbg</span><span class="o">=</span>233
 hi NonText <span class="nv">ctermfg</span><span class="o">=</span><span class="m">250</span> <span class="nv">ctermbg</span><span class="o">=</span>234</code></pre></div>
-
-<pre><code>change them to:
-</code></pre>
-
+<div class="highlight"><pre><code class="language-text" data-lang="text">change them to:
+</code></pre></div>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">hi Normal  <span class="nv">ctermfg</span><span class="o">=</span><span class="m">252</span> <span class="nv">ctermbg</span><span class="o">=</span>none
 hi NonText <span class="nv">ctermfg</span><span class="o">=</span><span class="m">250</span> <span class="nv">ctermbg</span><span class="o">=</span>none</code></pre></div>
 
 <ul>
-  <li>If you use colorscheme <a href="https://github.com/altercation/solarized">solarized</a>, please looking further and remember to tell me how:)</li>
+<li>If you use colorscheme <a href="https://github.com/altercation/solarized">solarized</a>, please looking further and remember to tell me how:)</li>
 </ul>
-
 
       </div>
       <footer>
@@ -77,25 +108,20 @@ hi NonText <span class="nv">ctermfg</span><span class="o">=</span><span class="m
 <p>Why do i need to build vim from source:</p>
 
 <ol>
-  <li>
-    <p>The default vim in ubuntu 14.04 can&#8217;t use system clipbord.</p>
-  </li>
-  <li>
-    <p>You can choose to <code>apt-get install</code> available packages like <code>vim-gnome</code> or <code>vim-gtk</code>, but i&#8217;m facing the annoying warning like:</p>
-  </li>
+<li><p>The default vim in ubuntu 14.04 can&#39;t use system clipbord.</p></li>
+<li><p>You can choose to <code>apt-get install</code> available packages like <code>vim-gnome</code> or <code>vim-gtk</code>, but i&#39;m facing the annoying warning like:</p></li>
 </ol>
 
 <blockquote>
-
-  <p><code>(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it</code>.</p>
+<p><code>(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it</code>.</p>
 </blockquote>
 
-<p>the only solution i&#8217;ve found is to build it from source.</p>
+<p>the only solution i&#39;ve found is to build it from source.</p>
 
-<p>And it&#8217;s not that difficult, here is how i did it:</p>
+<p>And it&#39;s not that difficult, here is how i did it:</p>
 
 <ul>
-  <li>Install the required libraries, in ubuntu:</li>
+<li>Install the required libraries, in ubuntu:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev <span class="se">\</span>
@@ -104,26 +130,22 @@ hi NonText <span class="nv">ctermfg</span><span class="o">=</span><span class="m
     ruby-dev mercurial</code></pre></div>
 
 <ul>
-  <li>Remove all the existing vi(m):</li>
+<li>Remove all the existing vi(m):</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common</code></pre></div>
-
-<pre><code>in ubuntu 14.04 maybe you only need to remove the first 3.
-</code></pre>
-
+<div class="highlight"><pre><code class="language-text" data-lang="text">in ubuntu 14.04 maybe you only need to remove the first 3.
+</code></pre></div>
 <ul>
-  <li>
-    <p>Get source code of vim</p>
+<li><p>Get source code of vim</p>
 
-    <p>go to a place where you want store your vim source code, and then:</p>
-  </li>
+<p>go to a place where you want store your vim source code, and then:</p></li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone https://github.com/vim/vim.git</code></pre></div>
 
 <ul>
-  <li>Build and install:</li>
+<li>Build and install:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd </span>vim
@@ -137,7 +159,7 @@ sudo make install</code></pre></div>
 sudo checkinstall</code></pre></div>
 
 <ul>
-  <li>Set vim as default editor:</li>
+<li>Set vim as default editor:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
@@ -148,12 +170,11 @@ sudo update-alternatives --set vi /usr/bin/vim</code></pre></div>
 <p><em>Reference:</em></p>
 
 <ol>
-  <li>https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source</li>
-  <li>http://www.cnblogs.com/zhongcq/p/3615980.html</li>
-  <li>http://segmentfault.com/a/1190000000487523</li>
-  <li>http://www.vim.org/git.php</li>
+<li>https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source</li>
+<li>http://www.cnblogs.com/zhongcq/p/3615980.html</li>
+<li>http://segmentfault.com/a/1190000000487523</li>
+<li>http://www.vim.org/git.php</li>
 </ol>
-
 
       </div>
       <footer>
@@ -167,28 +188,25 @@ sudo update-alternatives --set vi /usr/bin/vim</code></pre></div>
         <p><time datetime="2014-09-11T00:37:00+02:00"> <strong> date: </strong> Sep 11, 2014</time> <strong> category:</strong> example <strong>tags:</strong> </p>
       </header>
       <div>
-<p><code>java
-public class Code {
-    public static void main(String[] args){
-        System.out.println("yo");
-    }
-}
-</code></p>
-
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Code</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;yo&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 <p><strong>Basic</strong></p>
 
 <p>Neque porro <em>quisquam</em> est, qui <strong>dolorem</strong> ipsum, quia <strong><em>dolor</em></strong> sit, amet, <a href="http://cjdns.info/">consectetur</a>, adipisci velit.</p>
 
 <ul>
-  <li>lorem</li>
-  <li>ipsum</li>
+<li>lorem</li>
+<li>ipsum</li>
 </ul>
 
 <ol>
-  <li>dolor</li>
-  <li>sit</li>
+<li>dolor</li>
+<li>sit</li>
 </ol>
-
 
       </div>
       <footer>
@@ -207,36 +225,25 @@ public class Code {
 <p>Neque porro <em>quisquam</em> est, qui <strong>dolorem</strong> ipsum, quia <strong><em>dolor</em></strong> sit, amet, <a href="http://cjdns.info/">consectetur</a>, adipisci velit.</p>
 
 <ul>
-  <li>lorem</li>
-  <li>ipsum</li>
+<li>lorem</li>
+<li>ipsum</li>
 </ul>
 
 <ol>
-  <li>dolor</li>
-  <li>sit</li>
+<li>dolor</li>
+<li>sit</li>
 </ol>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Header</th>
-      <th>Second Header</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Table Cell</td>
-      <td>Table Cell</td>
-    </tr>
-  </tbody>
-</table>
+<p>| First Header | Second Header |
+|--------------|---------------|
+| Table Cell   | Table Cell    |</p>
 
 <p><strong>Blockquote</strong></p>
 
 <blockquote>
-  <p>They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.</p>
+<p>They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.</p>
 
-  <p><em>Benjamin Franklin</em></p>
+<p><em>Benjamin Franklin</em></p>
 </blockquote>
 
 <p><strong>Code</strong></p>
@@ -248,7 +255,6 @@ public class Code {
     <span class="n">Dict</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Dict_CONST</span><span class="p">(</span><span class="n">String_CONST</span><span class="p">(</span><span class="s">&quot;asyncEnabled&quot;</span><span class="p">),</span> <span class="n">Int_OBJ</span><span class="p">(</span><span class="n">enabled</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
     <span class="n">Admin_sendMessage</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">,</span> <span class="n">txid</span><span class="p">,</span> <span class="n">admin</span><span class="p">);</span>
 <span class="p">}</span></code></pre></div>
-
 
       </div>
       <footer>

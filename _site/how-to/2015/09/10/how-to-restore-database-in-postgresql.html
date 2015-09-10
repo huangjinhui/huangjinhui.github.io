@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Niklas Buschmann 2015 MIT <http://github.com/niklasbuschmann> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Really, every thing">
+    <title> How to resotre database in postgresql › practice everything</title>
+    <link rel="canonical" href="/how-to/2015/09/10/how-to-restore-database-in-postgresql.html">
+    <link href="/main.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="practice everything &raquo; Feed" href="/feed.xml">
+    <script src="//huangjinhui.disqus.com/embed.js" async></script>
+    
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li><li><a href="/archive.html">Archive</a></li><li><a href="/categories.html">Categories</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    
+    <article>
+      <header>
+        <h2><a href="/how-to/2015/09/10/how-to-restore-database-in-postgresql.html">How to resotre database in postgresql</a></h2>
+        <p><time datetime="2015-09-10T00:00:00+02:00"> <strong> date: </strong> Sep 10, 2015</time> <strong> category:</strong> how-to <strong>tags:</strong> postgresql</p>
+
+      </header>
+      <div>
+<p>in ubuntu:</p>
+
+<h3>Installation</h3>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib</code></pre></div>
+
+<h3>Login and change password</h3>
+
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">huang$ sudo su</span>
+<span class="gp">root@t400:~#</span> 
+<span class="gp">root@t400:~#</span> su - postgres
+<span class="go">No protocol specified</span>
+<span class="go">xrdb: Resource temporarily unavailable</span>
+<span class="go">xrdb: Can&#39;t open display &#39;:0.0&#39;</span>
+<span class="gp">postgres@t400:~$</span> 
+<span class="gp">postgres@t400:~$</span> psql
+<span class="go">postgres=#</span>
+<span class="go">postgres=# \password postgres</span>
+<span class="go">Enter new password: </span>
+<span class="go">Enter it again:</span></code></pre></div>
+
+<h3>restore</h3>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">postgres@t400:~<span class="nv">$ </span>createdb PGCloudmigration
+postgres@t400:~<span class="nv">$ </span>psql PGCloudmigration &lt; /home/huang/dev/da/code/Nefolog/sql/PGCloudmigrationDB.bak</code></pre></div>
+
+<h2>test redcarpet</h2>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;i&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo u
+</code></pre></div>
+      </div>
+      
+      
+      <div id="disqus_thread"></div>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+    </article>
+
+    <footer>
+      <span><a href="">huang</a></span>
+      <span></span>
+      <span>&copy; 2015</span>
+    </footer>
+  </body>
+</html>

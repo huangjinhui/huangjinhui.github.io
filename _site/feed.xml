@@ -5,14 +5,63 @@
     <description>Really, every thing</description>
     <link></link>
     <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 05 Sep 2015 15:06:05 +0200</pubDate>
-    <lastBuildDate>Sat, 05 Sep 2015 15:06:05 +0200</lastBuildDate>
+    <pubDate>Thu, 10 Sep 2015 02:17:15 +0200</pubDate>
+    <lastBuildDate>Thu, 10 Sep 2015 02:17:15 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>How to resotre database in postgresql</title>
+        <description>&lt;p&gt;in ubuntu:&lt;/p&gt;
+
+&lt;h3&gt;Installation&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Login and change password&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;huang$ sudo su&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;root@t400:~#&lt;/span&gt; 
+&lt;span class=&quot;gp&quot;&gt;root@t400:~#&lt;/span&gt; su - postgres
+&lt;span class=&quot;go&quot;&gt;No protocol specified&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;xrdb: Resource temporarily unavailable&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;xrdb: Can&amp;#39;t open display &amp;#39;:0.0&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;postgres@t400:~$&lt;/span&gt; 
+&lt;span class=&quot;gp&quot;&gt;postgres@t400:~$&lt;/span&gt; psql
+&lt;span class=&quot;go&quot;&gt;postgres=#&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;postgres=# \password postgres&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Enter new password: &lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Enter it again:&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;restore&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;postgres@t400:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;createdb PGCloudmigration
+postgres@t400:~&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;psql PGCloudmigration &amp;lt; /home/huang/dev/da/code/Nefolog/sql/PGCloudmigrationDB.bak&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;test redcarpet&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo u
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Thu, 10 Sep 2015 00:00:00 +0200</pubDate>
+        <link>/how-to/2015/09/10/how-to-restore-database-in-postgresql.html</link>
+        <guid isPermaLink="true">/how-to/2015/09/10/how-to-restore-database-in-postgresql.html</guid>
+        
+        <category>postgresql</category>
+        
+        
+        <category>how-to</category>
+        
+      </item>
     
       <item>
         <title>How to make vim transparent in linux</title>
         <description>&lt;ul&gt;
-  &lt;li&gt;If you don’t use any &lt;code&gt;colorscheme&lt;/code&gt; in your &lt;code&gt;.vimrc&lt;/code&gt;, just add&lt;/li&gt;
+&lt;li&gt;If you don&amp;#39;t use any &lt;code&gt;colorscheme&lt;/code&gt; in your &lt;code&gt;.vimrc&lt;/code&gt;, just add &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;hi Normal &lt;span class=&quot;nv&quot;&gt;ctermbg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -20,22 +69,20 @@
 &lt;p&gt;in your &lt;code&gt;.vimrc&lt;/code&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;If you use colorscheme &lt;a href=&quot;https://github.com/tomasr/molokai&quot;&gt;molokai&lt;/a&gt;, edit your &lt;code&gt;.vim/colors/molokai.vim&lt;/code&gt;:&lt;/li&gt;
+&lt;li&gt;If you use colorscheme &lt;a href=&quot;https://github.com/tomasr/molokai&quot;&gt;molokai&lt;/a&gt;, edit your &lt;code&gt;.vim/colors/molokai.vim&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;find these two lines:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;hi Normal  &lt;span class=&quot;nv&quot;&gt;ctermfg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;252&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ctermbg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;233
 hi NonText &lt;span class=&quot;nv&quot;&gt;ctermfg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;250&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ctermbg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;234&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code&gt;change them to:
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;change them to:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;hi Normal  &lt;span class=&quot;nv&quot;&gt;ctermfg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;252&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ctermbg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none
 hi NonText &lt;span class=&quot;nv&quot;&gt;ctermfg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;250&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ctermbg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;none&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;If you use colorscheme &lt;a href=&quot;https://github.com/altercation/solarized&quot;&gt;solarized&lt;/a&gt;, please looking further and remember to tell me how:)&lt;/li&gt;
+&lt;li&gt;If you use colorscheme &lt;a href=&quot;https://github.com/altercation/solarized&quot;&gt;solarized&lt;/a&gt;, please looking further and remember to tell me how:)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 05 Sep 2015 02:57:00 +0200</pubDate>
@@ -54,25 +101,20 @@ hi NonText &lt;span class=&quot;nv&quot;&gt;ctermfg&lt;/span&gt;&lt;span class=&
         <description>&lt;p&gt;Why do i need to build vim from source:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;The default vim in ubuntu 14.04 can’t use system clipbord.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You can choose to &lt;code&gt;apt-get install&lt;/code&gt; available packages like &lt;code&gt;vim-gnome&lt;/code&gt; or &lt;code&gt;vim-gtk&lt;/code&gt;, but i’m facing the annoying warning like:&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The default vim in ubuntu 14.04 can&amp;#39;t use system clipbord.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;You can choose to &lt;code&gt;apt-get install&lt;/code&gt; available packages like &lt;code&gt;vim-gnome&lt;/code&gt; or &lt;code&gt;vim-gtk&lt;/code&gt;, but i&amp;#39;m facing the annoying warning like:&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;blockquote&gt;
-
-  &lt;p&gt;&lt;code&gt;(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;(gvim:9767): GLib-CRITICAL **: Source ID 51 was not found when attempting to remove it&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;the only solution i’ve found is to build it from source.&lt;/p&gt;
+&lt;p&gt;the only solution i&amp;#39;ve found is to build it from source.&lt;/p&gt;
 
-&lt;p&gt;And it’s not that difficult, here is how i did it:&lt;/p&gt;
+&lt;p&gt;And it&amp;#39;s not that difficult, here is how i did it:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Install the required libraries, in ubuntu:&lt;/li&gt;
+&lt;li&gt;Install the required libraries, in ubuntu:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
@@ -81,26 +123,22 @@ hi NonText &lt;span class=&quot;nv&quot;&gt;ctermfg&lt;/span&gt;&lt;span class=&
     ruby-dev mercurial&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Remove all the existing vi(m):&lt;/li&gt;
+&lt;li&gt;Remove all the existing vi(m):&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;pre&gt;&lt;code&gt;in ubuntu 14.04 maybe you only need to remove the first 3.
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;in ubuntu 14.04 maybe you only need to remove the first 3.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Get source code of vim&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Get source code of vim&lt;/p&gt;
 
-    &lt;p&gt;go to a place where you want store your vim source code, and then:&lt;/p&gt;
-  &lt;/li&gt;
+&lt;p&gt;go to a place where you want store your vim source code, and then:&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;git clone https://github.com/vim/vim.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Build and install:&lt;/li&gt;
+&lt;li&gt;Build and install:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;vim
@@ -114,7 +152,7 @@ sudo make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 sudo checkinstall&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Set vim as default editor:&lt;/li&gt;
+&lt;li&gt;Set vim as default editor:&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
@@ -125,12 +163,11 @@ sudo update-alternatives --set vi /usr/bin/vim&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 &lt;p&gt;&lt;em&gt;Reference:&lt;/em&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source&lt;/li&gt;
-  &lt;li&gt;http://www.cnblogs.com/zhongcq/p/3615980.html&lt;/li&gt;
-  &lt;li&gt;http://segmentfault.com/a/1190000000487523&lt;/li&gt;
-  &lt;li&gt;http://www.vim.org/git.php&lt;/li&gt;
+&lt;li&gt;https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source&lt;/li&gt;
+&lt;li&gt;http://www.cnblogs.com/zhongcq/p/3615980.html&lt;/li&gt;
+&lt;li&gt;http://segmentfault.com/a/1190000000487523&lt;/li&gt;
+&lt;li&gt;http://www.vim.org/git.php&lt;/li&gt;
 &lt;/ol&gt;
-
 </description>
         <pubDate>Sat, 29 Aug 2015 00:00:00 +0200</pubDate>
         <link>/how-to/2015/08/29/how-to-build-vim-from-source.html</link>
@@ -145,49 +182,36 @@ sudo update-alternatives --set vi /usr/bin/vim&lt;/code&gt;&lt;/pre&gt;&lt;/div&
     
       <item>
         <title>Example 2</title>
-        <description>&lt;p&gt;&lt;code&gt;java
-public class Code {
-    public static void main(String[] args){
-        System.out.println(&quot;yo&quot;);
-    }
-}
-&lt;/code&gt;&lt;/p&gt;
-
+        <description>&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;yo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Basic&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Neque porro &lt;em&gt;quisquam&lt;/em&gt; est, qui &lt;strong&gt;dolorem&lt;/strong&gt; ipsum, quia &lt;strong&gt;&lt;em&gt;dolor&lt;/em&gt;&lt;/strong&gt; sit, amet, &lt;a href=&quot;http://cjdns.info/&quot;&gt;consectetur&lt;/a&gt;, adipisci velit.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;lorem&lt;/li&gt;
-  &lt;li&gt;ipsum&lt;/li&gt;
+&lt;li&gt;lorem&lt;/li&gt;
+&lt;li&gt;ipsum&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;dolor&lt;/li&gt;
-  &lt;li&gt;sit&lt;/li&gt;
+&lt;li&gt;dolor&lt;/li&gt;
+&lt;li&gt;sit&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;First Header&lt;/th&gt;
-      &lt;th&gt;Second Header&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Table Cell&lt;/td&gt;
-      &lt;td&gt;Table Cell&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;| First Header | Second Header |
+|--------------|---------------|
+| Table Cell   | Table Cell    |&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Blockquote&lt;/strong&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.&lt;/p&gt;
+&lt;p&gt;They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.&lt;/p&gt;
 
-  &lt;p&gt;&lt;em&gt;Benjamin Franklin&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Benjamin Franklin&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;/p&gt;
@@ -199,7 +223,6 @@ public class Code {
     &lt;span class=&quot;n&quot;&gt;Dict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dict_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;asyncEnabled&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int_OBJ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Admin_sendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 </description>
         <pubDate>Thu, 11 Sep 2014 00:37:00 +0200</pubDate>
         <link>/example/2014/09/11/example-2.html</link>
@@ -217,36 +240,25 @@ public class Code {
 &lt;p&gt;Neque porro &lt;em&gt;quisquam&lt;/em&gt; est, qui &lt;strong&gt;dolorem&lt;/strong&gt; ipsum, quia &lt;strong&gt;&lt;em&gt;dolor&lt;/em&gt;&lt;/strong&gt; sit, amet, &lt;a href=&quot;http://cjdns.info/&quot;&gt;consectetur&lt;/a&gt;, adipisci velit.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;lorem&lt;/li&gt;
-  &lt;li&gt;ipsum&lt;/li&gt;
+&lt;li&gt;lorem&lt;/li&gt;
+&lt;li&gt;ipsum&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;dolor&lt;/li&gt;
-  &lt;li&gt;sit&lt;/li&gt;
+&lt;li&gt;dolor&lt;/li&gt;
+&lt;li&gt;sit&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;First Header&lt;/th&gt;
-      &lt;th&gt;Second Header&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Table Cell&lt;/td&gt;
-      &lt;td&gt;Table Cell&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;| First Header | Second Header |
+|--------------|---------------|
+| Table Cell   | Table Cell    |&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Blockquote&lt;/strong&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.&lt;/p&gt;
+&lt;p&gt;They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.&lt;/p&gt;
 
-  &lt;p&gt;&lt;em&gt;Benjamin Franklin&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Benjamin Franklin&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Code&lt;/strong&gt;&lt;/p&gt;
@@ -258,7 +270,6 @@ public class Code {
     &lt;span class=&quot;n&quot;&gt;Dict&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Dict_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String_CONST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;asyncEnabled&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int_OBJ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Admin_sendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 </description>
         <pubDate>Thu, 11 Sep 2014 00:37:00 +0200</pubDate>
         <link>/example/2014/09/11/example.html</link>
