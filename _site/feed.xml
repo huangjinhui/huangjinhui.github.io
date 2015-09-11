@@ -5,19 +5,96 @@
     <description>Really, every thing</description>
     <link></link>
     <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 10 Sep 2015 02:26:49 +0200</pubDate>
-    <lastBuildDate>Thu, 10 Sep 2015 02:26:49 +0200</lastBuildDate>
+    <pubDate>Sat, 12 Sep 2015 01:45:10 +0200</pubDate>
+    <lastBuildDate>Sat, 12 Sep 2015 01:45:10 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>How To Automatically Start Tomcat In Centos7</title>
+        <description>&lt;p&gt;首先下载 tomcat&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; wget http://mirror.arcor-online.net/www.apache.org/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; tar zx -f apache-tomcat-7.0.64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后设置开机启动&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /etc/init.d
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; vi tomcat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;输入如下内容&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;    &lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# chkconfig: 234 20 80&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# description: Tomcat Server basic start/shutdown script&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# processname: tomcat&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;TOMCAT_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/apache-tomcat-7.0.64/bin
+    &lt;span class=&quot;nv&quot;&gt;START_TOMCAT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/apache-tomcat-7.0.64/bin/startup.sh
+    &lt;span class=&quot;nv&quot;&gt;STOP_TOMCAT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/opt/apache-tomcat-7.0.64/bin/shutdown.sh
+    start&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n &lt;span class=&quot;s2&quot;&gt;&amp;quot;Starting tomcat: &amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$TOMCAT_HOME&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;START_TOMCAT&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;done.&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    stop&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -n &lt;span class=&quot;s2&quot;&gt;&amp;quot;Shutting down tomcat: &amp;quot;&lt;/span&gt;
+
+    &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$TOMCAT_HOME&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;STOP_TOMCAT&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;done.&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; in
+    start&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    start
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    stop&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    stop
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    restart&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    stop
+    sleep 10
+    start
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+    *&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Usage: $0 {start|stop|restart}&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;改变新建的tomcat文件的权限&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; chmod &lt;span class=&quot;m&quot;&gt;755&lt;/span&gt; tomcat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;设置开机启动&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; chkconfig --add tomcat
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; chkconfig --level &lt;span class=&quot;m&quot;&gt;234&lt;/span&gt; tomcat on
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;设置防火墙&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; firewall-cmd --zone&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;public --add-port&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8080/tcp --permanent
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt; firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;&lt;em&gt;Reference&lt;/em&gt;&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/clipped_html/2015.09/How%20To%20Install%20Tomcat%20On%20CentOS%207.html&quot;&gt;how to install tomcat on centos 7&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/clipped_html/2015.09/CentOS%20-%20Tomcat%206%20%7C%20Knowledge%20Center%20%7C%20Rackspace%20Hosting.html&quot;&gt;CentOS - Tomcat 6&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Fri, 11 Sep 2015 00:00:00 +0200</pubDate>
+        <link>/how-to/2015/09/11/how-to-automatically-start-tomcat-in-centos7.html</link>
+        <guid isPermaLink="true">/how-to/2015/09/11/how-to-automatically-start-tomcat-in-centos7.html</guid>
+        
+        <category>centos</category>
+        
+        
+        <category>how-to</category>
+        
+      </item>
     
       <item>
         <title>How to resotre database in postgresql</title>
         <description>&lt;p&gt;in ubuntu:&lt;/p&gt;
 
 &lt;h3&gt;Installation&lt;/h3&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo apt-get update
-sudo apt-get install postgresql postgresql-contrib&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo apt-get update&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;sudo apt-get install postgresql postgresql-contrib&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Login and change password&lt;/h3&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;huang$ sudo su&lt;/span&gt;

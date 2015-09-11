@@ -30,6 +30,83 @@
     
     <article>
       <header>
+        <h2><a href="/how-to/2015/09/11/how-to-automatically-start-tomcat-in-centos7.html">How To Automatically Start Tomcat In Centos7</a></h2>
+        <p><time datetime="2015-09-11T00:00:00+02:00"> <strong> date: </strong> Sep 11, 2015</time> <strong> category:</strong> how-to <strong>tags:</strong> centos</p>
+      </header>
+      <div>
+<p>首先下载 tomcat</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span> <span class="nb">cd</span> /opt
+<span class="gp">#</span> wget http://mirror.arcor-online.net/www.apache.org/tomcat/tomcat-7/v7.0.64/bin/apache-tomcat-7.0.64.tar.gz
+<span class="gp">#</span> tar zx -f apache-tomcat-7.0.64.tar.gz
+</code></pre></div>
+<p>然后设置开机启动</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span> <span class="nb">cd</span> /etc/init.d
+<span class="gp">#</span> vi tomcat
+</code></pre></div>
+<p>输入如下内容</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">    <span class="c">#!/bin/bash</span>
+    <span class="c"># chkconfig: 234 20 80</span>
+    <span class="c"># description: Tomcat Server basic start/shutdown script</span>
+    <span class="c"># processname: tomcat</span>
+    <span class="nv">TOMCAT_HOME</span><span class="o">=</span>/opt/apache-tomcat-7.0.64/bin
+    <span class="nv">START_TOMCAT</span><span class="o">=</span>/opt/apache-tomcat-7.0.64/bin/startup.sh
+    <span class="nv">STOP_TOMCAT</span><span class="o">=</span>/opt/apache-tomcat-7.0.64/bin/shutdown.sh
+    start<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> -n <span class="s2">&quot;Starting tomcat: &quot;</span>
+    <span class="nb">cd</span> <span class="nv">$TOMCAT_HOME</span>
+    <span class="k">${</span><span class="nv">START_TOMCAT</span><span class="k">}</span>
+    <span class="nb">echo</span> <span class="s2">&quot;done.&quot;</span>
+    <span class="o">}</span>
+    stop<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> -n <span class="s2">&quot;Shutting down tomcat: &quot;</span>
+
+    <span class="nb">cd</span> <span class="nv">$TOMCAT_HOME</span>
+    <span class="k">${</span><span class="nv">STOP_TOMCAT</span><span class="k">}</span>
+    <span class="nb">echo</span> <span class="s2">&quot;done.&quot;</span>
+    <span class="o">}</span>
+    <span class="k">case</span> <span class="s2">&quot;$1&quot;</span> in
+    start<span class="o">)</span>
+    start
+    <span class="p">;;</span>
+    stop<span class="o">)</span>
+    stop
+    <span class="p">;;</span>
+    restart<span class="o">)</span>
+    stop
+    sleep 10
+    start
+    <span class="p">;;</span>
+    *<span class="o">)</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Usage: $0 {start|stop|restart}&quot;</span>
+    <span class="k">esac</span>
+    <span class="nb">exit </span>0
+</code></pre></div>
+<p>改变新建的tomcat文件的权限</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span> chmod <span class="m">755</span> tomcat
+</code></pre></div>
+<p>设置开机启动</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span> chkconfig --add tomcat
+<span class="gp">#</span> chkconfig --level <span class="m">234</span> tomcat on
+</code></pre></div>
+<p>设置防火墙</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">#</span> firewall-cmd --zone<span class="o">=</span>public --add-port<span class="o">=</span>8080/tcp --permanent
+<span class="gp">#</span> firewall-cmd --reload
+</code></pre></div>
+<h2><em>Reference</em></h2>
+
+<ol>
+<li><a href="/clipped_html/2015.09/How%20To%20Install%20Tomcat%20On%20CentOS%207.html">how to install tomcat on centos 7</a></li>
+<li><a href="/clipped_html/2015.09/CentOS%20-%20Tomcat%206%20%7C%20Knowledge%20Center%20%7C%20Rackspace%20Hosting.html">CentOS - Tomcat 6</a></li>
+</ol>
+
+      </div>
+      <footer>
+        <p><a href="/how-to/2015/09/11/how-to-automatically-start-tomcat-in-centos7.html">read more &raquo;</a></p>
+      </footer>
+    </article>
+    
+    <article>
+      <header>
         <h2><a href="/how-to/2015/09/10/how-to-restore-database-in-postgresql.html">How to resotre database in postgresql</a></h2>
         <p><time datetime="2015-09-10T00:00:00+02:00"> <strong> date: </strong> Sep 10, 2015</time> <strong> category:</strong> how-to <strong>tags:</strong> postgresql</p>
       </header>
@@ -37,10 +114,9 @@
 <p>in ubuntu:</p>
 
 <h3>Installation</h3>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get update
-sudo apt-get install postgresql postgresql-contrib</code></pre></div>
-
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo apt-get update</span>
+<span class="go">sudo apt-get install postgresql postgresql-contrib</span>
+</code></pre></div>
 <h3>Login and change password</h3>
 
 <div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">huang$ sudo su</span>

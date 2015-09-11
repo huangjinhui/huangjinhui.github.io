@@ -9,10 +9,10 @@ in ubuntu:
 
 ### Installation
 
-{% highlight sh %}
+``` console
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
-{% endhighlight %}
+```
 
 ### Login and change password
 
