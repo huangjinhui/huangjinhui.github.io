@@ -83,6 +83,6 @@ tags: [centos]
 
 ## _Reference_
 
-1. [how to install tomcat on centos 7](/clipped_html/2015.09/How To Install Tomcat On CentOS 7.html)
-2. [CentOS - Tomcat 6](/clipped_html/2015.09/CentOS - Tomcat 6 | Knowledge Center | Rackspace Hosting.html)
+1. [how to install tomcat on centos 7](/clipped_html/201509/How To Install Tomcat On CentOS 7.html) 
+2. [CentOS - Tomcat 6](/clipped_html/201509/CentOS - Tomcat 6  Knowledge Center  Rackspace Hosting.html)
 

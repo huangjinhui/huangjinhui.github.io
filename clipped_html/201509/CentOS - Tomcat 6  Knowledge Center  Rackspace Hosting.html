@@ -1,0 +1,141 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="宋体" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/276665; Windows/5.1.2600 Service Pack 3 (Win32);"/>
+  <style>
+    body, td {
+      font-family: 宋体;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="1106"/>
+
+<div><span><br/><div style="font-size: 16px"><div><div style="font-family:arial;color:rgb(51, 51, 51);font-size:13px;"><div><div><div>
+    
+  
+      
+      
+                                          <h1 style="font-size:30px;font-weight:normal;margin:0px;">CentOS - Tomcat 6</h1>
+                        
+      
+      
+              <ul style="margin:14px 0px;padding:0px;list-style:none;">
+          <li style="display:inline;margin-right:10px;padding-right:13px;border-right-width:1px;border-right-style:solid;border-right-color:rgb(170, 170, 170);">Article ID: <b>286</b></li>
+          <li style="display:inline;margin-right:10px;padding-right:13px;border-right-width:1px;border-right-style:solid;border-right-color:rgb(170, 170, 170);">Last updated on <b>November 5, 2012</b></li>
+                      
+            <li style="display:inline;margin-right:10px;padding-right:13px;border-right-width:1px;border-right-color:rgb(170, 170, 170);border-right-style:none;">Authored by: <b>Rackspace Support</b></li>
+                  </ul>
+      
+              <div style="margin-bottom:-6px;">
+                    <div style="clear:both;display:block;overflow:hidden;visibility:hidden;width:0px;height:0px;"></div>
+        </div>
+      
+                        <hr/>
+              
+      
+        <div>
+    <div>
+
+    
+  <div>
+    
+<div>
+    <div><div><div><p style="line-height:1.4em;">This tutorial will walk you through installing Tomcat 6 on CentOS 5. This installation assumes you have walked through the <a href="http://www.rackspace.com/knowledge_center/index.php/CentOS_-_Setup" style="text-decoration:none;color:rgb(30, 130, 215);" title="CentOS - Setup">CentOS - Setup</a> article.</p><table style="font-size:inherit;font-weight:inherit;font-style:inherit;font-variant:inherit;border-spacing:0px;border-collapse:collapse;max-width:700px;word-wrap:break-word;float:none;margin:10px 0px;" summary="Contents"><tbody><tr><td style="padding:5px;border:1px solid rgb(153, 153, 153);"><h2 style="color:rgb(81, 76, 76);font-size:18px;margin:0px;font-weight:bold;">Contents</h2><ul><li><a href="http://www.rackspace.com/knowledge_center/article/centos-tomcat-6#Acquiring_JRE.2FJDK" style="text-decoration:none;color:rgb(30, 130, 215);">1 Acquiring JRE/JDK</a></li><li><a href="http://www.rackspace.com/knowledge_center/article/centos-tomcat-6#Installing" style="text-decoration:none;color:rgb(30, 130, 215);">2 Installing</a></li><li><a href="http://www.rackspace.com/knowledge_center/article/centos-tomcat-6#Installing_Ant_and_Tomcat" style="text-decoration:none;color:rgb(30, 130, 215);">3 Installing Ant and Tomcat</a></li><li><a href="http://www.rackspace.com/knowledge_center/article/centos-tomcat-6#Set_JAVA_HOME" style="text-decoration:none;color:rgb(30, 130, 215);">4 Set JAVA_HOME</a></li><li><a href="http://www.rackspace.com/knowledge_center/article/centos-tomcat-6#Automating_Startup" style="text-decoration:none;color:rgb(30, 130, 215);">5 Automating Startup</a></li></ul></td></tr></tbody></table><p style="line-height:1.4em;"><a name="Acquiring_JRE.2FJDK" style="text-decoration:none;color:rgb(30, 130, 215);"></a></p><h2 style="color:rgb(81, 76, 76);font-size:18px;margin:0px;font-weight:bold;">Acquiring JRE/JDK </h2><p style="line-height:1.4em;">First we need to download JDK and JRE 6 for CentOS. Download the following files to your root directory (~) with 'wget'. Note that you may need to change the file names as they may have some URL variables added to the name. Be sure to *not* download the RPM files.</p><p style="line-height:1.4em;"><a href="http://java.sun.com/javase/downloads/widget/jdk6.jsp" rel="nofollow" style="text-decoration:none;color:rgb(30, 130, 215);" title="http://java.sun.com/javase/downloads/widget/jdk6.jsp">JDK Download</a></p><p style="line-height:1.4em;"><a href="http://java.com/en/download/manual_v6.jsp" rel="nofollow" style="text-decoration:none;color:rgb(30, 130, 215);" title="https://cds.sun.com/is-bin/INTERSHOP.enfinity/WFS/CDS-CDS_Developer-Site/en_US/-/USD/ViewProductDetail-Start?ProductRef=jre-6u18-oth-JPR@CDS-CDS_Developer">JRE Download</a></p><p style="line-height:1.4em;"><a name="Installing" style="text-decoration:none;color:rgb(30, 130, 215);"></a></p><h2 style="color:rgb(81, 76, 76);font-size:18px;margin:0px;font-weight:bold;">Installing </h2><p style="line-height:1.4em;">Now that we have the files downloaded we need to create an installation directory for Java.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo mkdir /usr/java
+cd /usr/java
+</pre><p style="line-height:1.4em;">Now we need to execute the installation for Java Development Kit (JDK). In our example we will use specific file names. Keep in mind that your file names may vary.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo sh ~/jdk-6u14-ea-bin-b03-linux-amd64-10_mar_2009.bin
+</pre><p style="line-height:1.4em;">Press &lt;space&gt; to advance through the license agreement and type 'yes' to accept. Press &lt;enter&gt; to finish the installation.</p><p style="line-height:1.4em;">Now we need to install the Java Runtime Edition (JRE). In our example we will use specific file names. Keep in mind that your file names may vary.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo sh ~/jre-6u14-ea-bin-b03-linux-amd64-10_mar_2009.bin
+</pre><p style="line-height:1.4em;">Press &lt;space&gt; to advance through the license agreement and type 'yes' to accept.</p><p style="line-height:1.4em;">Verify the installation by typing <strong>ls</strong>. You should see two directories: <em>jdk1.6.0_14</em> and <em>jre1.6.0_14</em>. Keep in mind that your version numbers may differ slightly.</p><p style="line-height:1.4em;"><a name="Installing_Ant_and_Tomcat" style="text-decoration:none;color:rgb(30, 130, 215);"></a></p><h2 style="color:rgb(81, 76, 76);font-size:18px;margin:0px;font-weight:bold;">Installing Ant and Tomcat </h2><p style="line-height:1.4em;">Next we will need to download and extract Apache Ant. Ant is an installation utility used by several Apache products.</p><p style="line-height:1.4em;">To download Apache Ant you will need to visit the following website to download the installation file: <a href="http://ant.apache.org/bindownload.cgi" rel="nofollow" style="text-decoration:none;color:rgb(30, 130, 215);" title="http://ant.apache.org/bindownload.cgi">http://ant.apache.org/bindownload.cgi</a>. Scroll down the page and find the <strong>.tar.gz</strong> under <strong>Current Release of Ant</strong>. Copy the URL and use <strong>wget</strong> to download the file to the /usr/share directory. Your version number may differ.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>cd /usr/share
+sudo wget http://mirror.olnevhost.net/pub/apache/ant/binaries/apache-ant-1.7.1-bin.tar.gz
+</pre><p style="line-height:1.4em;">Next we need to unpack that file so we can install it. Note that your version number may be different.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo tar -xzf apache-ant-1.7.1-bin.tar.gz
+</pre><p style="line-height:1.4em;">Now we need to download Tomcat 6 to the /usr/share directory. Go to <a href="http://tomcat.apache.org/download-60.cgi" rel="nofollow" style="text-decoration:none;color:rgb(30, 130, 215);" title="http://tomcat.apache.org/download-60.cgi">http://tomcat.apache.org/download-60.cgi</a> and download the latest Core version. This will be located under the 'Binary Distributions' portion. Be sure to download the <strong>tar.gz</strong> package. Note that the version numbers may vary.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>cd /usr/share
+sudo wget http://apache.ziply.com/tomcat/tomcat-6/v6.0.18/bin/apache-tomcat-6.0.18.tar.gz
+</pre><p style="line-height:1.4em;">Now we need to unpack that archive. Note that your version number may be different.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo tar -xzf apache-tomcat-6.0.18.tar.gz
+</pre><p style="line-height:1.4em;">We need to create a symbolic link for Ant so other applications can easily find it. Be sure to select the correct version when you create your link.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo ln -s /usr/share/apache-ant-1.7.1/bin/ant /usr/bin
+</pre><p style="line-height:1.4em;"><a name="Set_JAVA_HOME" style="text-decoration:none;color:rgb(30, 130, 215);"></a></p><h2 style="color:rgb(81, 76, 76);font-size:18px;margin:0px;font-weight:bold;">Set JAVA_HOME </h2><p style="line-height:1.4em;">We need to setup the JAVA_HOME environment variable so Tomcat can find Java. Be sure to change the directory name according to your version of Tomcat.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>cd /usr/share/apache-tomcat-6.0.18/bin
+sudo vi catalina.sh
+</pre><p style="line-height:1.4em;">This will bring up the <strong>vi</strong> window. After the first line (that reads <strong>#!/bin/sh</strong>) you need to add a new line. To insert a new line press the <strong>i</strong> key to enter insert mode. Enter the following:</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>JAVA_HOME=/usr/java/jdk1.6.0_14
+
+** Be sure to adjust the directory name according to your JDK version **
+
+</pre><p style="line-height:1.4em;">Save the file by pressing the <strong>colon (:) key</strong>, typing <strong>wq</strong>, and then pressing <strong>&lt;enter&gt;</strong>.</p><p style="line-height:1.4em;">Now it is time to test your Tomcat installation. Be sure to note the version number in your path.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>cd /usr/share/apache-tomcat-6.0.18/bin
+sudo ./startup.sh
+</pre><p style="line-height:1.4em;">If it successfully starts you should see something similar to this:</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>Using CATALINA_BASE:   /usr/share/apache-tomcat-6.0.18
+Using CATALINA_HOME:   /usr/share/apache-tomcat-6.0.18
+Using CATALINA_TMPDIR: /usr/share/apache-tomcat-6.0.18/temp
+Using JRE_HOME:       /usr/java/jdk1.6.0_14</pre><p style="line-height:1.4em;">If you want to check for errors you can run the following command:</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>less /usr/share/apache-tomcat-6.0.18/logs/catalina.out</pre><p style="line-height:1.4em;">To verify your Tomcat installation is working go to <strong><a href="http://12.34.56.78:8080/" rel="nofollow" style="text-decoration:none;color:rgb(30, 130, 215);" title="http://12.34.56.78:8080">http://12.34.56.78:8080</a></strong> in your web browser. Be sure to change <strong>12.34.56.78</strong> to your server's IP address.</p><p style="line-height:1.4em;"><a name="Automating_Startup" style="text-decoration:none;color:rgb(30, 130, 215);"></a></p><h2 style="color:rgb(81, 76, 76);font-size:18px;margin:0px;font-weight:bold;">Automating Startup </h2><p style="line-height:1.4em;">Right now Tomcat will not start up on it's own so we need to create a startup script for this. To do this:</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>cd /etc/init.d
+sudo vi tomcat
+</pre><p style="line-height:1.4em;">Press <strong>i</strong> to enter insert mode and paste in the following:</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>    #!/bin/bash
+    # chkconfig: 234 20 80
+    # description: Tomcat Server basic start/shutdown script
+    # processname: tomcat
+    JAVA_HOME=/usr/java/jdk1.6.0_14
+    export JAVA_HOME
+    TOMCAT_HOME=/usr/share/apache-tomcat-6.0.18/bin
+    START_TOMCAT=/usr/share/apache-tomcat-6.0.18/bin/startup.sh
+    STOP_TOMCAT=/usr/share/apache-tomcat-6.0.18/bin/shutdown.sh
+    start() {
+    echo -n &quot;Starting tomcat: &quot;
+    cd $TOMCAT_HOME
+    ${START_TOMCAT}
+    echo &quot;done.&quot;
+    }
+    stop() {
+    echo -n &quot;Shutting down tomcat: &quot;
+    
+    cd $TOMCAT_HOME
+    ${STOP_TOMCAT}
+    echo &quot;done.&quot;
+    }
+    case &quot;$1&quot; in
+    start)
+    start
+    ;;
+    stop)
+    stop
+    ;;
+    restart)
+    stop
+    sleep 10
+    start
+    ;;
+    *)
+    echo &quot;Usage: $0 {start|stop|restart}&quot;
+    esac
+    exit 0
+</pre><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div><strong>Be sure to change the following items in the above file:</strong>
+* JAVA_HOME path
+* TOMCAT_HOME path
+* START_TOMCAT path
+* STOP_TOMCAT path
+</pre><p style="line-height:1.4em;">Once you have those changes made, save the file and quit.</p><p style="line-height:1.4em;">Now we need to change the permissions on the file.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo chmod 755 tomcat</pre><p style="line-height:1.4em;">We need to set the script to start with other system services and set the runlevels.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo /sbin/chkconfig --add tomcat
+sudo /sbin/chkconfig --level 234 tomcat on
+</pre><p style="line-height:1.4em;">You can verify that it is listed by typing <strong>/sbin/chkconfig --list tomcat</strong>.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>tomcat         	0:off	1:off	2:on	3:on	4:on	5:off	6:off</pre><p style="line-height:1.4em;">Test your shutdown and startup script.</p><pre style="color:white;padding:40px 20px 20px;overflow-x:hidden;border-radius:6px;background:rgb(51, 51, 51);"><div><a style="text-decoration:none;color:rgb(30, 130, 215);width:16px;height:16px;display:block;float:right;cursor:pointer;position:relative;top:-25px;background:url(http://www.rackspace.com/knowledge_center/profiles/kc/themes/rackspace_kc/images/page-white-code.png);"></a></div>sudo /sbin/service tomcat stop
+sudo /sbin/service tomcat start
+</pre><p style="line-height:1.4em;">Tomcat 6 should now be installed under CentOS.</p><p style="line-height:1.4em;">--<a href="http://www.rackspace.com/knowledge_center/index.php?title=User%3AKkoehn&amp;action=edit&amp;redlink=1" style="text-decoration:none;color:rgb(30, 130, 215);" title="Kkoehn (page does not exist)">Kelly Koehn</a> 11:48, 25 March 2009 (CDT)</p></div></div></div></div>
+
+
+<br/><br/>
+<div><div>
+
+<div><div style="border-width:5px 0px;border-top-style:solid;border-bottom-style:solid;border-top-color:rgb(167, 169, 172);border-bottom-color:rgb(167, 169, 172);padding:15px 5px;"><div><div style="margin-bottom:10px;margin-right:20px;font-size:18px;font-weight:bold;display:inline-block;">Was this content helpful?</div>
+</div></div>
+</div></div></div><br/><br/>
+
+<div><div style="width:100% !important;border:none !important;overflow:hidden !important;height:5003px !important;" title="Disqus"></div></div><div style="clear:both;display:block;overflow:hidden;visibility:hidden;width:0px;height:0px;"></div>
+
+<div>
+  <br/><br/>
+  <p style="line-height:1.4em;">© 2015 Rackspace US, Inc.</p>
+  <p style="line-height:1.4em;font-size:10px;font-style:italic;">Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</p>
+  <img src="CentOS - Tomcat 6  Knowledge Center  Rackspace Hosting_files/88x31.png" type="image/png" height="31" width="88"/><br/>
+  <a href="http://www.rackspace.com/knowledge_center/legal/" style="text-decoration:none;color:rgb(30, 130, 215);">See license specifics and DISCLAIMER</a>
+</div>
+  </div>
+</div>
+  </div>
+    </div></div></div></div></div></div><br/></span>
+</div></body></html> 
