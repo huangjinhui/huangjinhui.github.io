@@ -5,9 +5,49 @@
     <description>Really, every thing</description>
     <link></link>
     <atom:link href="feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 12 Sep 2015 15:25:31 +0200</pubDate>
-    <lastBuildDate>Sat, 12 Sep 2015 15:25:31 +0200</lastBuildDate>
+    <pubDate>Tue, 15 Sep 2015 22:18:10 +0200</pubDate>
+    <lastBuildDate>Tue, 15 Sep 2015 22:18:10 +0200</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>report</title>
+        <description>&lt;h3&gt;Spiegel 明镜&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;15.09.2015 – 17:18&lt;/em&gt;
+自周日起, 警察&amp;quot;控制&amp;quot;着德奥边境, 但是目前为止, 警方到底该干什么, 还不明确.&lt;/p&gt;
+
+&lt;p&gt;比如, 警方应当&amp;quot;遣返不是以避难为目的的非法入境者&amp;quot;
+但是, &amp;quot;所有人都说自己是叙利亚人, 即使他们明显是黑人&amp;quot;, 一名联邦警察说.
+&amp;quot;基本上, 我们的边境还和以前一样容易通过&amp;quot;, 警方说, &amp;quot;如果我们真的封锁边境, 那么在匈牙利的情况就会出现&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;15.09.2015 – 16:48&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4&gt;(难民政策)转向? 门儿也没有&lt;/h4&gt;
+
+&lt;p&gt;记者提梅克尔问: 您对难民的友好的姿态使得情况更加恶化, 对这件事的差评您怎么看?
+梅克尔答: 我必须诚恳的回答: 如果我们必须为我们在危难时刻表现出的善意的面孔而道歉, 那这不是我们的国家.&lt;/p&gt;
+
+&lt;p&gt;梅克尔, 气候总理, 欧罗巴拯救者, 现在她是难民总理, 决心继续对难民展开胸怀.&lt;/p&gt;
+
+&lt;p&gt;当然对边境线的控制并没有改变.&lt;/p&gt;
+
+&lt;h2&gt;Aachener Zeitung&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;15. September 2015, 12:32&lt;/em&gt;
+00:45, 两名持枪歹徒抢劫了位于Eschweilerstraße, Stolberg, (距离你家14公里)的一家游戏厅, 在逃. 描述中没有提是否难民.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;14. September 2015, 16:52 Uhr&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4&gt;亚琛联邦警察当前并没有进行边境管制. 而是和以前一样的监控力度.&lt;/h4&gt;
+</description>
+        <pubDate>Tue, 15 Sep 2015 00:00:00 +0200</pubDate>
+        <link>/example/2015/09/15/report.html</link>
+        <guid isPermaLink="true">/example/2015/09/15/report.html</guid>
+        
+        
+        <category>example</category>
+        
+      </item>
     
       <item>
         <title>How To Automatically Start Tomcat In Centos7</title>

@@ -1,0 +1,44 @@
+<p>in ubuntu:</p>
+
+<h3 id="installation">Installation</h3>
+
+<p><code>console
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+</code></p>
+
+<h3 id="login-and-change-password">Login and change password</h3>
+
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">huang$ sudo su</span>
+<span class="gp">root@t400:~#</span> 
+<span class="gp">root@t400:~#</span> su - postgres
+<span class="go">No protocol specified</span>
+<span class="go">xrdb: Resource temporarily unavailable</span>
+<span class="go">xrdb: Can&#39;t open display &#39;:0.0&#39;</span>
+<span class="gp">postgres@t400:~$</span> 
+<span class="gp">postgres@t400:~$</span> psql
+<span class="go">postgres=#</span>
+<span class="go">postgres=# \password postgres</span>
+<span class="go">Enter new password: </span>
+<span class="go">Enter it again:</span></code></pre></div>
+
+<h3 id="restore">restore</h3>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">postgres@t400:~<span class="nv">$ </span>createdb PGCloudmigration
+postgres@t400:~<span class="nv">$ </span>psql PGCloudmigration &lt; /home/huang/dev/da/code/Nefolog/sql/PGCloudmigrationDB.bak</code></pre></div>
+
+<h2 id="test-redcarpet">test redcarpet</h2>
+
+<p><code>java
+public class Test {
+    private int i = 0;
+    public static void main(String[] args) {
+        System.out.println("i");
+    }
+}
+</code></p>
+
+<p><code>bash
+sudo u
+</code></p>
+
